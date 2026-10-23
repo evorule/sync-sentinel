@@ -1,0 +1,24 @@
+name: dual-end sentinel
+
+# Daily read-only consistency check between canonical repositories and their
+# public mirrors (default-branch SHA + version tags). Anonymous read only:
+# no secrets, no writes, no pushes. Red badge = divergence detected (may be
+# transient while a change is in flight between ends); see the latest run
+# for the full comparison table.
+
+on:
+  schedule:
+    - cron: '30 0 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  sentinel:
+    name: check dual-end consistency
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+      - name: Run consistency check
+        run: bash scripts/check_dual_sync.sh
