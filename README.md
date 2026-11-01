@@ -1,3 +1,6 @@
+> **[RETIRED / 已退役]** This sentinel retired on 2026-11-02 (B-091 single-master migration): Gitee mirrors are frozen as private archives, dual-end consistency checks no longer apply. Canonical development lives on GitHub.
+> **[已退役]** 2026-11-02 随 GitHub 单主转换批退役：Gitee 镜像已转私冻结，双端一致性核对不再适用。
+
 # sync-sentinel
 
 Daily **read-only** consistency check between the canonical Git repositories and their public GitHub mirrors: default-branch SHA and `v*` version tags, per repository.
